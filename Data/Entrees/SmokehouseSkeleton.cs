@@ -9,41 +9,48 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+    /// <summary>
+	/// A class which represents a breakfast combo entree
+	/// </summary>
+	/// <remarks>
+	/// entree keeps track of holding components, price, calories
+	/// special instructions for holding items and printing item.
+	/// </remarks>
     public class SmokehouseSkeleton
     {
-        /// <summary>
+        /// <value>
         /// Gets the Price of the entree
-        /// </summary>
+        /// </value>
         public double Price => 5.62;
 
-        /// <summary>
+        /// <value>
         /// Gets the Calories of the entree
-        /// </summary>
+        /// </value>
         public uint Calories => 602;
 
-        /// <summary>
+        /// <value>
         /// Gets and sets the sausagelink property
-        /// </summary>
+        /// </value>
         public bool SausageLink { get; set; } = true;
 
-        /// <summary>
+        /// <value>
         /// Gets and sets the egg property
-        /// </summary>
+        /// </value>
         public bool Egg { get; set; } = true;
 
-        /// <summary>
+        /// <value>
         /// Gets and sets the hashBrowns property
-        /// </summary>
+        /// </value>
         public bool HashBrowns { get; set; } = true;
 
-        /// <summary>
+        /// <value>
         /// Gets and sets the pancake property
-        /// </summary>
+        /// </value>
         public bool Pancake { get; set; } = true;
 
-        /// <summary>
+        /// <value>
         /// List that hold special instructions for making the entree without certain properties
-        /// </summary>
+        /// </value>
         public List<string> SpecialInstructions
         {
             get

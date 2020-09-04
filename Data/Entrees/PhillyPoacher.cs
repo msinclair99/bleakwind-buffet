@@ -9,36 +9,43 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+    /// <summary>
+	/// A class which represents a cheesesteak sandwhich entree
+	/// </summary>
+	/// <remarks>
+	/// entree keeps track of holding components, price, calories
+	/// special instructions for holding items and printing item.
+	/// </remarks>
     public class PhillyPoacher
     {
-        /// <summary>
+        /// <value>
         /// Gets the Price of the entree
-        /// </summary>
+        /// </value>
         public double Price => 7.23;
 
-        /// <summary>
+        /// <value>
         /// Gets the Calories of the entree
-        /// </summary>
+        /// </value>
         public uint Calories => 784;
 
-        /// <summary>
+        /// <value>
         /// Gets and sets the sirloin property
-        /// </summary>
+        /// </value>
         public bool Sirloin { get; set; } = true;
 
-        /// <summary>
+        /// <value>
         /// Gets and sets the onion property
-        /// </summary>
+        /// </value>
         public bool Onion { get; set; } = true;
 
-        /// <summary>
+        /// <value>
         /// Gets and sets the roll property
-        /// </summary>
+        /// </value>
         public bool Roll { get; set; } = true;
 
-        /// <summary>
+        /// <value>
         /// List that hold special instructions for making the entree without certain properties
-        /// </summary>
+        /// </value>
         public List<string> SpecialInstructions
         {
             get

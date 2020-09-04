@@ -10,11 +10,18 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Drinks
 {
+    /// <summary>
+	/// A class which represents a milk drink
+	/// </summary>
+	/// <remarks>
+	/// drink keeps track of ice, price, calories
+	/// special instructions and printing item.
+	/// </remarks>
     public class MarkarthMilk
     {
-        /// <summary>
+        /// <value>
         /// Gets and sets the Size of the drink
-        /// </summary>
+        /// </value>
         private Size size = Size.Small;
         public Size Size
         {
@@ -28,9 +35,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-        /// <summary>
+        /// <value>
         /// Gets the Price of the drink
-        /// </summary>
+        /// </value>
         public double Price
         {
             get
@@ -42,9 +49,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-        /// <summary>
+        /// <value>
         /// Gets the Calories of the drink
-        /// </summary>
+        /// </value>
         public uint Calories
         {
             get
@@ -56,15 +63,14 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-
-        /// <summary>
+        /// <value>
         /// Gets and sets the ice property
-        /// </summary>
+        /// </value>
         public bool Ice { get; set; } = false;
 
-        /// <summary>
-        /// List that hold special instructions for making the entree without certain properties
-        /// </summary>
+        /// <value>
+        /// List that hold special instructions for making the drink with ice
+        /// </value>
         public List<string> SpecialInstructions
         {
             get

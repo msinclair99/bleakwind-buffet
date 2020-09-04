@@ -9,61 +9,68 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+    /// <summary>
+	/// A class which represents a double burger entree
+	/// </summary>
+	/// <remarks>
+	/// entree keeps track of holding components, price, calories
+	/// special instructions for holding items and printing item.
+	/// </remarks>
     public class DoubleDraugr
     {
-        /// <summary>
+        /// <value>
         /// Gets the Price of the Burger
-        /// </summary>
+        /// </value>
         public double Price => 7.32;
 
-        /// <summary>
+        /// <value>
         /// Gets the Calories of the Burger
-        /// </summary>
+        /// </value>
         public uint Calories => 843;
 
-        /// <summary>
+        /// <value>
         /// Gets and sets the bun property
-        /// </summary>
+        /// </value>
         public bool Bun { get; set; } = true;
 
-        /// <summary>
+        /// <value>
         /// Gets and sets the ketchup property
-        /// </summary>
+        /// </value>
         public bool Ketchup { get; set; } = true;
 
-        /// <summary>
+        /// <value>
         /// Gets and sets the mustard property
-        /// </summary>
+        /// </value>
         public bool Mustard { get; set; } = true;
 
-        /// <summary>
+        /// <value>
         /// Gets and sets the pickle property
-        /// </summary>
+        /// </value>
         public bool Pickle { get; set; } = true;
 
-        /// <summary>
+        /// <value>
         /// Gets and sets the cheese property
-        /// </summary>
+        /// </value>
         public bool Cheese { get; set; } = true;
 
-        /// <summary>
+        /// <value>
         /// Gets and sets the tomato property
-        /// </summary>
+        /// </value>
         public bool Tomato { get; set; } = true;
 
-        /// <summary>
+        /// <value>
         /// Gets and sets the lettuce property
-        /// </summary>
+        /// </value>
         public bool Lettuce { get; set; } = true;
 
-        /// <summary>
+        /// <value>
         /// Gets and sets the Mayo property
-        /// </summary>
+        /// </value>
         public bool Mayo { get; set; } = true;
 
-        /// <summary>
+        /// <value>
         /// List that hold special instructions for making the entree without certain properties
-        /// </summary>
+        /// </value>
         public List<string> SpecialInstructions
         {
             get

@@ -10,11 +10,18 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Sides
 {
-    public class MadOtarGrits
+	/// <summary>
+	/// A class which represents a side of grits
+	/// </summary>
+	/// <remarks>
+	/// side keeps track of price, calories
+	/// special instructions are blank and printing item with size info.
+	/// </remarks>
+	public class MadOtarGrits
     {
-		/// <summary>
+		/// <value>
 		/// Gets and sets the Size of the side
-		/// </summary>
+		/// </value>
 		private Size size = Size.Small;
 		public Size Size
 		{
@@ -28,9 +35,9 @@ namespace BleakwindBuffet.Data.Sides
 			}
 		}
 
-		/// <summary>
+		/// <value>
 		/// Gets the Price of the side
-		/// </summary>
+		/// </value>
 		public double Price
 		{
 			get
@@ -42,9 +49,9 @@ namespace BleakwindBuffet.Data.Sides
 			}
 		}
 
-		/// <summary>
+		/// <value>
 		/// Gets the Calories of the side
-		/// </summary>
+		/// </value>
 		public uint Calories
 		{
 			get
@@ -53,6 +60,18 @@ namespace BleakwindBuffet.Data.Sides
 				if (size == Size.Medium) return 142;
 				if (size == Size.Large) return 179;
 				throw new NotImplementedException();
+			}
+		}
+
+		/// <value>
+		/// List that hold special instructions for making the side set blank
+		/// </value>
+		public List<string> SpecialInstructions
+		{
+			get
+			{
+				List<string> specialInstructions = new List<string>();
+				return specialInstructions;
 			}
 		}
 

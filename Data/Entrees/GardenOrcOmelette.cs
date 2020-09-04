@@ -9,42 +9,49 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+    /// <summary>
+	/// A class which represents a omelette entree
+	/// </summary>
+	/// <remarks>
+	/// entree keeps track of holding components, price, calories
+	/// special instructions for holding items and printing item.
+	/// </remarks>
     public class GardenOrcOmelette
     {
-        /// <summary>
+        /// <value>
         /// Gets the Price of the entree
-        /// </summary>
+        /// </value>
         public double Price => 4.57;
 
-        /// <summary>
+        /// <value>
         /// Gets the Calories of the entree
-        /// </summary>
+        /// </value>
         public uint Calories => 404;
 
-        /// <summary>
+        /// <value>
         /// Gets and sets the broccoli property
-        /// </summary>
+        /// </value>
         public bool Broccoli { get; set; } = true;
 
-        /// <summary>
+        /// <value>
         /// Gets and sets the mushrooms property
-        /// </summary>
+        /// </value>
         public bool Mushrooms { get; set; } = true;
 
-        /// <summary>
+        /// <value>
         /// Gets and sets the tomato property
-        /// </summary>
+        /// </value>
         public bool Tomato { get; set; } = true;
 
-        /// <summary>
+        /// <value>
         /// Gets and sets the cheddar property
-        /// </summary>
+        /// </value>
         public bool Cheddar { get; set; } = true;
 
 
-        /// <summary>
+        /// <value>
         /// List that hold special instructions for making the entree without certain properties
-        /// </summary>
+        /// </value>
         public List<string> SpecialInstructions
         {
             get

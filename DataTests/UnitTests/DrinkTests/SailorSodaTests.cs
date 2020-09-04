@@ -1,5 +1,6 @@
 ﻿/*
  * Author: Zachery Brunner
+ * Edited by: Matthew Sinclair
  * Class: SailorSodaTests.cs
  * Purpose: Test the SailorSoda.cs class in the Data library
  */
@@ -9,6 +10,7 @@ using Xunit;
 
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
+using BleakwindBuffet.Data.Drinks;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -17,31 +19,64 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [Fact]
         public void ShouldIncludeIceByDefault()
         {
+            SailorSoda ss = new SailorSoda();
+            Assert.True(ss.Ice);
         }
 
         [Fact]
         public void ShouldBeSmallByDefault()
         {
+            SailorSoda ss = new SailorSoda();
+            Assert.Equal(Size.Small, ss.Size);
         }
 
         [Fact]
         public void FlavorShouldBeCherryByDefault()
         {
+            SailorSoda ss = new SailorSoda();
+            Assert.Equal(SodaFlavor.Cherry, ss.Flavor);
         }
 
         [Fact]
         public void ShouldBeAbleToSetIce()
         {
+            SailorSoda ss = new SailorSoda();
+            ss.Ice = false;
+            Assert.False(ss.Ice);
+            ss.Ice = true;
+            Assert.True(ss.Ice);
+            
         }
 
         [Fact]
         public void ShouldBeAbleToSetSize()
         {
+            SailorSoda ss = new SailorSoda();
+            ss.Size = Size.Large;
+            Assert.Equal(Size.Large, ss.Size);
+            ss.Size = Size.Medium;
+            Assert.Equal(Size.Medium, ss.Size);
+            ss.Size = Size.Small;
+            Assert.Equal(Size.Small, ss.Size);
         }
 
         [Fact]
         public void ShouldBeAbleToSetFlavor()
         {
+            SailorSoda ss = new SailorSoda();
+            ss.Flavor = SodaFlavor.Blackberry;
+            Assert.Equal(SodaFlavor.Blackberry, ss.Flavor);
+            ss.Flavor = SodaFlavor.Grapefruit;
+            Assert.Equal(SodaFlavor.Grapefruit, ss.Flavor);
+            ss.Flavor = SodaFlavor.Lemon;
+            Assert.Equal(SodaFlavor.Lemon, ss.Flavor);
+            ss.Flavor = SodaFlavor.Peach;
+            Assert.Equal(SodaFlavor.Peach, ss.Flavor);
+            ss.Flavor = SodaFlavor.Watermelon;
+            Assert.Equal(SodaFlavor.Watermelon, ss.Flavor);
+            ss.Flavor = SodaFlavor.Cherry;
+            Assert.Equal(SodaFlavor.Cherry, ss.Flavor);
+
         }
 
         [Theory]
@@ -50,6 +85,10 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(Size.Large, 2.07)]
         public void ShouldHaveCorrectPriceForSize(Size size, double price)
         {
+            SailorSoda ss = new SailorSoda();
+            ss.Size = size;
+            Assert.Equal(price, ss.Price);
+
         }
 
         [Theory]
@@ -58,6 +97,10 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(Size.Large, 205)]
         public void ShouldHaveCorrectCaloriesForSize(Size size, uint cal)
         {
+            SailorSoda ss = new SailorSoda();
+            ss.Size = size;
+            Assert.Equal(cal, ss.Calories);
+
         }
 
         [Theory]
@@ -65,6 +108,17 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(false)]
         public void ShouldHaveCorrectSpecialInstructions(bool includeIce)
         {
+            SailorSoda ss = new SailorSoda();
+            ss.Ice = includeIce;
+            if (!includeIce)
+            {
+                Assert.Contains("Hold ice", ss.SpecialInstructions);
+            }
+            else
+            {
+                Assert.Empty(ss.SpecialInstructions);
+            }
+
         }
         
         [Theory]
@@ -93,6 +147,10 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(SodaFlavor.Watermelon, Size.Large, "Large Watermelon Sailor Soda")]
         public void ShouldHaveCorrectToStringBasedOnSizeAndFlavor(SodaFlavor flavor, Size size, string name)
         {
+            SailorSoda ss = new SailorSoda();
+            ss.Size = size;
+            ss.Flavor = flavor;
+            Assert.Equal(name, ss.ToString());
         }
     }
 }

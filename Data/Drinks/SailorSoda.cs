@@ -10,6 +10,13 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Drinks
 {
+    /// <summary>
+	/// A class which represents a soda drink
+	/// </summary>
+	/// <remarks>
+	/// drink keeps track of ice,flavor, price, calories
+	/// special instructions and printing item.
+	/// </remarks>
     public class SailorSoda
     {
         /// <summary>
@@ -28,9 +35,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-        /// <summary>
+        /// <value>
         /// Gets the Price of the drink
-        /// </summary>
+        /// </value>
         public double Price
         {
             get
@@ -42,9 +49,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-        /// <summary>
+        /// <value>
         /// Gets the Calories of the drink
-        /// </summary>
+        /// </value>
         public uint Calories
         {
             get
@@ -57,14 +64,14 @@ namespace BleakwindBuffet.Data.Drinks
         }
 
 
-        /// <summary>
+        /// <value>
         /// Gets and sets the ice property
-        /// </summary>
+        /// </value>
         public bool Ice { get; set; } = true;
 
-        /// <summary>
+        /// <value>
         /// Gets and sets the flavor of the drink
-        /// </summary>
+        /// </value>
         private SodaFlavor flavor = SodaFlavor.Cherry;
         public SodaFlavor Flavor
         {
@@ -78,9 +85,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-        /// <summary>
-        /// List that hold special instructions for making the entree without certain properties
-        /// </summary>
+        /// <value>
+        /// List that hold special instructions for making the drink without ice
+        /// </value>
         public List<string> SpecialInstructions
         {
             get
