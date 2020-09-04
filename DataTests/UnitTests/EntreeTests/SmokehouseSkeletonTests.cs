@@ -11,6 +11,9 @@ using BleakwindBuffet.Data.Entrees;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
+    /// <summary>
+    /// Tests the SmokehouseSkeleton class in the Data library
+    /// </summary>
     public class SmokehouseSkeletonTests
     {        
         [Fact]

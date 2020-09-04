@@ -12,6 +12,9 @@ using BleakwindBuffet.Data.Sides;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
+    /// <summary>
+    /// Tests the FriedMiraak class in the Data library
+    /// </summary>
     public class FriedMiraakTests
     {
         [Fact]

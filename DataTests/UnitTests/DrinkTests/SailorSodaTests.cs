@@ -14,6 +14,9 @@ using BleakwindBuffet.Data.Drinks;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
+    /// <summary>
+    /// Tests the SailorSoda class in the Data library
+    /// </summary>
     public class SailorSodaTests
     {
         [Fact]

@@ -13,8 +13,12 @@ using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
+    /// <summary>
+    /// Tests the CandlehearthCoffee class in the Data library
+    /// </summary>
     public class CandlehearthCoffeeTests
     {
+
         [Fact]
         public void ShouldNotIncludeIceByDefault()
         {
