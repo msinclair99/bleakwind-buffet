@@ -1,5 +1,6 @@
 ﻿/*
  * Author: Zachery Brunner
+ * Edited by: Matthew Sinclair
  * Class: GardenOrcOmeletteTests.cs
  * Purpose: Test the GardenOrcOmelette.cs class in the Data library
  */
@@ -15,6 +16,20 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     /// </summary>
     public class GardenOrcOmeletteTests
     {
+        [Fact]
+        public void ShouldBeAIOrderItem()
+        {
+            GardenOrcOmelette goo = new GardenOrcOmelette();
+            Assert.IsAssignableFrom<IOrderItem>(goo);
+        }
+
+        [Fact]
+        public void ShouldBeAEntree()
+        {
+            GardenOrcOmelette goo = new GardenOrcOmelette();
+            Assert.IsAssignableFrom<Entree>(goo);
+        }
+
         [Fact]
         public void ShouldInlcudeBroccoliByDefault()
         {

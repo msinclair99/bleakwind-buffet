@@ -16,22 +16,22 @@ namespace BleakwindBuffet.Data.Entrees
 	/// entree keeps track of holding components, price, calories
 	/// special instructions for holding items and printing item.
 	/// </remarks>
-    public class ThugsTBone
+    public class ThugsTBone : Entree
     {
         /// <value>
         /// Gets the Price of the entree
         /// </value>
-        public double Price => 6.44;
+        public override double Price => 6.44;
 
         /// <value>
         /// Gets the Calories of the entree
         /// </value>
-        public uint Calories => 982;
+        public override uint Calories => 982;
 
         /// <value>
         /// List that hold special instructions for making the entree without certain properties blank for this entree
         /// </value>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

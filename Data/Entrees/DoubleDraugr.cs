@@ -16,17 +16,17 @@ namespace BleakwindBuffet.Data.Entrees
 	/// entree keeps track of holding components, price, calories
 	/// special instructions for holding items and printing item.
 	/// </remarks>
-    public class DoubleDraugr
+    public class DoubleDraugr : Entree
     {
         /// <value>
         /// Gets the Price of the Burger
         /// </value>
-        public double Price => 7.32;
+        public override double Price => 7.32;
 
         /// <value>
         /// Gets the Calories of the Burger
         /// </value>
-        public uint Calories => 843;
+        public override uint Calories => 843;
 
         /// <value>
         /// Gets and sets the bun property
@@ -71,7 +71,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <value>
         /// List that hold special instructions for making the entree without certain properties
         /// </value>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

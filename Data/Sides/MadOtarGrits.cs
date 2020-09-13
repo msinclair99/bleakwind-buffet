@@ -17,13 +17,13 @@ namespace BleakwindBuffet.Data.Sides
 	/// side keeps track of price, calories
 	/// special instructions are blank and printing item with size info.
 	/// </remarks>
-	public class MadOtarGrits
+	public class MadOtarGrits : Side
     {
 		/// <value>
 		/// Gets and sets the Size of the side
 		/// </value>
 		private Size size = Size.Small;
-		public Size Size
+		public override Size Size
 		{
 			get
 			{
@@ -39,7 +39,7 @@ namespace BleakwindBuffet.Data.Sides
 		/// Gets the Price of the side
 		/// </value>
 		/// <exception cref="System.NotImplementedException">Thrown if the size is not set to one of the three options</exception>
-		public double Price
+		public override double Price
 		{
 			get
 			{
@@ -54,7 +54,7 @@ namespace BleakwindBuffet.Data.Sides
 		/// Gets the Calories of the side
 		/// </value>
 		/// <exception cref="System.NotImplementedException">Thrown if the size is not set to one of the three options</exception>
-		public uint Calories
+		public override uint Calories
 		{
 			get
 			{
@@ -68,7 +68,7 @@ namespace BleakwindBuffet.Data.Sides
 		/// <value>
 		/// List that hold special instructions for making the side set blank
 		/// </value>
-		public List<string> SpecialInstructions
+		public override List<string> SpecialInstructions
 		{
 			get
 			{

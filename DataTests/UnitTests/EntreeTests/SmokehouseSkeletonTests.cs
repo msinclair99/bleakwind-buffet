@@ -15,7 +15,23 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     /// Tests the SmokehouseSkeleton class in the Data library
     /// </summary>
     public class SmokehouseSkeletonTests
-    {        
+    {
+        [Fact]
+        public void ShouldBeAIOrderItem()
+        {
+            SmokehouseSkeleton ss = new SmokehouseSkeleton();
+            Assert.IsAssignableFrom<IOrderItem>(ss);
+        }
+
+
+        [Fact]
+        public void ShouldBeAEntree()
+        {
+            SmokehouseSkeleton ss = new SmokehouseSkeleton();
+            Assert.IsAssignableFrom<Entree>(ss);
+        }
+
+
         [Fact]
         public void ShouldInlcudeSausageByDefault()
         {

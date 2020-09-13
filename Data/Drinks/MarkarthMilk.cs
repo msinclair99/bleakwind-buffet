@@ -17,13 +17,13 @@ namespace BleakwindBuffet.Data.Drinks
 	/// drink keeps track of ice, price, calories
 	/// special instructions and printing item.
 	/// </remarks>
-    public class MarkarthMilk
+    public class MarkarthMilk : Drink
     {
         /// <value>
         /// Gets and sets the Size of the drink
         /// </value>
         private Size size = Size.Small;
-        public Size Size
+        public override Size Size
         {
             get
             {
@@ -39,7 +39,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// Gets the Price of the drink
         /// </value>
         /// <exception cref="System.NotImplementedException">Thrown if the size is not set to one of the three options</exception>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -54,7 +54,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// Gets the Calories of the drink
         /// </value>
         /// <exception cref="System.NotImplementedException">Thrown if the size is not set to one of the three options</exception>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -73,7 +73,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <value>
         /// List that hold special instructions for making the drink with ice
         /// </value>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

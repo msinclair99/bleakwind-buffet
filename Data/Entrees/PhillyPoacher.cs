@@ -16,17 +16,17 @@ namespace BleakwindBuffet.Data.Entrees
 	/// entree keeps track of holding components, price, calories
 	/// special instructions for holding items and printing item.
 	/// </remarks>
-    public class PhillyPoacher
+    public class PhillyPoacher : Entree
     {
         /// <value>
         /// Gets the Price of the entree
         /// </value>
-        public double Price => 7.23;
+        public override double Price => 7.23;
 
         /// <value>
         /// Gets the Calories of the entree
         /// </value>
-        public uint Calories => 784;
+        public override uint Calories => 784;
 
         /// <value>
         /// Gets and sets the sirloin property
@@ -46,7 +46,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <value>
         /// List that hold special instructions for making the entree without certain properties
         /// </value>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
