@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="PointOfSale.CustomizationDisplays.SizeCustom"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale.CustomizationDisplays"
+             mc:Ignorable="d" 
+             d:DesignHeight="150" d:DesignWidth="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" FontSize="30">Choose Size:</TextBlock>
+
+        <RadioButton Name="SizeSmall" Grid.Row="0" Grid.Column="1" GroupName="Size" IsChecked="True">
+            Small
+        </RadioButton>
+        <RadioButton Name="SizeMedium" Grid.Row="1" Grid.Column="0" GroupName="Size">
+            Medium
+        </RadioButton>
+        <RadioButton Name="SizeLarge" Grid.Row="1" Grid.Column="1" GroupName="Size">
+            Large
+        </RadioButton>
+        
+    </Grid>
+</UserControl>
