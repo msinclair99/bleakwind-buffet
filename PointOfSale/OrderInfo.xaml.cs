@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+* Author: Matthew Sinclair
+* Class name: OrderInfo.xaml.cs
+* Purpose: Creates a screen for order information
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

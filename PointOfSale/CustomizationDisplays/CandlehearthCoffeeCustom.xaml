@@ -23,10 +23,10 @@
 
             </Grid.RowDefinitions>
 
-            <CheckBox Grid.Row="0" IsChecked="False" >Ice</CheckBox>
-            <CheckBox Grid.Row="1" IsChecked="False" >Cream</CheckBox>
-            <CheckBox Grid.Row="2" IsChecked="False" >Decaf</CheckBox>
-            <Border Grid.Row="3">
+            <CheckBox x:Name="IceBox" Grid.Row="0" IsChecked="{Binding Path=Ice}" >Ice</CheckBox>
+            <CheckBox x:Name="CreamBox" Grid.Row="1" IsChecked="{Binding Path=RoomForCream}" >Cream</CheckBox>
+            <CheckBox x:Name="DecafBox" Grid.Row="2" IsChecked="{Binding Path=Decaf}" >Decaf</CheckBox>
+            <Border x:Name="SizeBorder" Grid.Row="3">
                 <local:SizeCustom/>
             </Border>
         </Grid>

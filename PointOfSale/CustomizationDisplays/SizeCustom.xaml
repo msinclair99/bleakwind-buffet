@@ -18,15 +18,15 @@
 
         <TextBlock Grid.Row="0" Grid.Column="0" FontSize="30">Choose Size:</TextBlock>
 
-        <RadioButton Name="SizeSmall" Grid.Row="0" Grid.Column="1" GroupName="Size" IsChecked="True">
+        <RadioButton Click="SizeClickChange" Name="SizeSmall" Grid.Row="0" Grid.Column="1" GroupName="Size" IsChecked="True">
             Small
         </RadioButton>
-        <RadioButton Name="SizeMedium" Grid.Row="1" Grid.Column="0" GroupName="Size">
+        <RadioButton Click="SizeClickChange" Name="SizeMedium" Grid.Row="1" Grid.Column="0" GroupName="Size">
             Medium
         </RadioButton>
-        <RadioButton Name="SizeLarge" Grid.Row="1" Grid.Column="1" GroupName="Size">
+        <RadioButton Click="SizeClickChange" Name="SizeLarge" Grid.Row="1" Grid.Column="1" GroupName="Size">
             Large
         </RadioButton>
-        
+
     </Grid>
 </UserControl>

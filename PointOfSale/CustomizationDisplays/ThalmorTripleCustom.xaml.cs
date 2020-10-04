@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+* Author: Matthew Sinclair
+* Class name: ThalmorTripleCustom.xaml.cs
+* Purpose: Creates a screen interactions for Thalmor Triple customization
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

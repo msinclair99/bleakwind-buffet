@@ -6,6 +6,7 @@
 using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Sides
@@ -17,8 +18,13 @@ namespace BleakwindBuffet.Data.Sides
 	/// side keeps track of price, calories
 	/// special instructions are blank and printing item with size info.
 	/// </remarks>
-	public class FriedMiraak : Side
-    {
+	public class FriedMiraak : Side, INotifyPropertyChanged
+	{
+		/// <summary>
+		/// An event to be invoked on the change of a property
+		/// </summary>
+		public event PropertyChangedEventHandler PropertyChanged;
+
 		/// <value>
 		/// Gets and sets the Size of the side
 		/// </value>
@@ -32,6 +38,9 @@ namespace BleakwindBuffet.Data.Sides
 			set
 			{
 				size = value;
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
 			}
 		}
 

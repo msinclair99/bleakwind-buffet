@@ -5,6 +5,7 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
@@ -16,8 +17,13 @@ namespace BleakwindBuffet.Data.Entrees
 	/// entree keeps track of holding components, price, calories
 	/// special instructions for holding items and printing item.
 	/// </remarks>
-    public class GardenOrcOmelette : Entree
+    public class GardenOrcOmelette : Entree, INotifyPropertyChanged
     {
+        /// <summary>
+        /// An event to be invoked on the change of a property
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <value>
         /// Gets the Price of the entree
         /// </value>
@@ -31,23 +37,62 @@ namespace BleakwindBuffet.Data.Entrees
         /// <value>
         /// Gets and sets the broccoli property
         /// </value>
-        public bool Broccoli { get; set; } = true;
+        private bool broccoli = true;
+        public bool Broccoli
+        {
+            get { return broccoli; }
+            set
+            {
+                broccoli = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Broccoli"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
 
         /// <value>
         /// Gets and sets the mushrooms property
         /// </value>
-        public bool Mushrooms { get; set; } = true;
+        private bool mushrooms = true;
+        public bool Mushrooms
+        {
+            get { return mushrooms; }
+            set
+            {
+                mushrooms = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mushrooms"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
 
         /// <value>
         /// Gets and sets the tomato property
         /// </value>
-        public bool Tomato { get; set; } = true;
+        private bool tomato = true;
+        public bool Tomato
+        {
+            get { return tomato; }
+            set
+            {
+                tomato = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tomato"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
 
         /// <value>
         /// Gets and sets the cheddar property
         /// </value>
-        public bool Cheddar { get; set; } = true;
-
+        private bool cheddar = true;
+        public bool Cheddar
+        {
+            get { return cheddar; }
+            set
+            {
+                cheddar = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheddar"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
 
         /// <value>
         /// List that hold special instructions for making the entree without certain properties

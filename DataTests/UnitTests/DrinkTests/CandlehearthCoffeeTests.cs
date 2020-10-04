@@ -19,6 +19,128 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
     public class CandlehearthCoffeeTests
     {
         [Fact]
+        public void ImplementsINotifyPropertyChanged()
+        {
+            CandlehearthCoffee chc = new CandlehearthCoffee();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(chc);
+        }
+
+        [Fact]
+        public void ChangingIceInvokesPropertyChanged()
+        {
+            CandlehearthCoffee chc = new CandlehearthCoffee();
+            Assert.PropertyChanged(chc, "Ice", () =>
+            {
+                chc.Ice = false;
+            });
+            Assert.PropertyChanged(chc, "Ice", () =>
+            {
+                chc.Ice = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingCreamInvokesPropertyChanged()
+        {
+            CandlehearthCoffee chc = new CandlehearthCoffee();
+            Assert.PropertyChanged(chc, "RoomForCream", () =>
+            {
+                chc.RoomForCream = true;
+            });
+            Assert.PropertyChanged(chc, "RoomForCream", () =>
+            {
+                chc.RoomForCream = false;
+            });
+        }
+
+
+        [Fact]
+        public void ChangingDecafInvokesPropertyChanged()
+        {
+            CandlehearthCoffee chc = new CandlehearthCoffee();
+            Assert.PropertyChanged(chc, "Decaf", () =>
+            {
+                chc.Decaf = true;
+            });
+            Assert.PropertyChanged(chc, "Decaf", () =>
+            {
+                chc.Decaf = false;
+            });
+
+            Assert.PropertyChanged(chc, "Name", () =>
+            {
+                chc.Decaf = true;
+            });
+            Assert.PropertyChanged(chc, "Name", () =>
+            {
+                chc.Decaf = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingPropertyInvokesSpecialInstructions()
+        {
+            CandlehearthCoffee chc = new CandlehearthCoffee();
+
+            Assert.PropertyChanged(chc, "SpecialInstructions", () =>
+            {
+                chc.Ice = false;
+            });
+
+            Assert.PropertyChanged(chc, "SpecialInstructions", () =>
+            {
+                chc.RoomForCream = true;
+            });
+
+        }
+
+        [Fact]
+        public void ChangingSizeNotifiesSizeProperty()
+        {
+            CandlehearthCoffee chc = new CandlehearthCoffee();
+
+            Assert.PropertyChanged(chc, "Name", () =>
+            {
+                chc.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(chc, "Price", () =>
+            {
+                chc.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(chc, "Calories", () =>
+            {
+                chc.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(chc, "Name", () =>
+            {
+                chc.Size = Size.Large;
+            });
+            Assert.PropertyChanged(chc, "Price", () =>
+            {
+                chc.Size = Size.Large;
+            });
+            Assert.PropertyChanged(chc, "Calories", () =>
+            {
+                chc.Size = Size.Large;
+            });
+
+            Assert.PropertyChanged(chc, "Name", () =>
+            {
+                chc.Size = Size.Small;
+            });
+            Assert.PropertyChanged(chc, "Price", () =>
+            {
+                chc.Size = Size.Small;
+            });
+            Assert.PropertyChanged(chc, "Calories", () =>
+            {
+                chc.Size = Size.Small;
+            });
+        }
+
+
+        [Fact]
         public void ShouldBeAIOrderItem()
         {
             CandlehearthCoffee chc = new CandlehearthCoffee();

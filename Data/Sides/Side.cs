@@ -10,11 +10,17 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Sides
 {
+
     /// <summary>
     /// A base class representing the common properties of sides
     /// </summary>
     public abstract class Side : IOrderItem
     {
+        /// <summary>
+        /// binds Name to the ToString of an item
+        /// </summary>
+        public virtual string Name => ToString();
+
         /// <summary>
         /// The size of the side
         /// </summary>

@@ -29,16 +29,16 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <CheckBox Grid.Row="0" Grid.Column="1" >Bun</CheckBox>
-            <CheckBox Grid.Row="1" Grid.Column="1">Ketchup</CheckBox>
-            <CheckBox Grid.Row="2" Grid.Column="1">Mustard</CheckBox>
-            <CheckBox Grid.Row="3" Grid.Column="1">Pickle</CheckBox>
-            <CheckBox Grid.Row="0" >Cheese</CheckBox>
-            <CheckBox Grid.Row="1" >Tomato</CheckBox>
-            <CheckBox Grid.Row="2" >Lettuce</CheckBox>
-            <CheckBox Grid.Row="3" >Mayo</CheckBox>
-            <CheckBox Grid.Row="4" >Bacon</CheckBox>
-            <CheckBox Grid.Row="4" Grid.Column="1">Egg</CheckBox>
+            <CheckBox x:Name="BunBox" Grid.Row="0" Grid.Column="1" IsChecked="{Binding Path=Bun}">Bun</CheckBox>
+            <CheckBox x:Name="KetchupBox" Grid.Row="1" Grid.Column="1" IsChecked="{Binding Path=Ketchup}">Ketchup</CheckBox>
+            <CheckBox x:Name="MustardBox" Grid.Row="2" Grid.Column="1" IsChecked="{Binding Path=Mustard}">Mustard</CheckBox>
+            <CheckBox x:Name="PickleBox" Grid.Row="3" Grid.Column="1" IsChecked="{Binding Path=Pickle}">Pickle</CheckBox>
+            <CheckBox x:Name="CheeseBox" Grid.Row="0" IsChecked="{Binding Path=Cheese}">Cheese</CheckBox>
+            <CheckBox x:Name="TomatoBox" Grid.Row="1" IsChecked="{Binding Path=Tomato}">Tomato</CheckBox>
+            <CheckBox x:Name="LettuceBox" Grid.Row="2" IsChecked="{Binding Path=Lettuce}">Lettuce</CheckBox>
+            <CheckBox x:Name="MayoBox" Grid.Row="3" IsChecked="{Binding Path=Mayo}">Mayo</CheckBox>
+            <CheckBox x:Name="BaconBox" Grid.Row="4" IsChecked="{Binding Path=Bacon}">Bacon</CheckBox>
+            <CheckBox x:Name="EggBox" Grid.Row="4" Grid.Column="1" IsChecked="{Binding Path=Egg}">Egg</CheckBox>
 
         </Grid>
 

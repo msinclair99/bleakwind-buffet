@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+* Author: Matthew Sinclair
+* Class name: Order.xaml.cs
+* Purpose: Creates a screen for Ordering
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -31,7 +36,14 @@ namespace PointOfSale
 
         public void CancelButton(object sender, RoutedEventArgs e)
         {
-            LeftContainer.Child = new MenuSelection();
+            if (LeftContainer.Child is MenuSelection)
+            {
+                throw new NotImplementedException("Cannot cancel an order yet");
+            }
+            else
+            {
+                LeftContainer.Child = new MenuSelection();
+            }
         }
     }
 }

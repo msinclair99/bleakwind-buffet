@@ -8,6 +8,7 @@ using Xunit;
 
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -16,6 +17,96 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     /// </summary>
     public class GardenOrcOmeletteTests
     {
+        [Fact]
+        public void ImplementsINotifyPropertyChanged()
+        {
+            GardenOrcOmelette goo = new GardenOrcOmelette();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(goo);
+        }
+
+        [Fact]
+        public void ChangingBroccoliInvokesPropertyChanged()
+        {
+            GardenOrcOmelette goo = new GardenOrcOmelette();
+            Assert.PropertyChanged(goo, "Broccoli", () =>
+            {
+                goo.Broccoli = false;
+            });
+            Assert.PropertyChanged(goo, "Broccoli", () =>
+            {
+                goo.Broccoli = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingMushroomsInvokesPropertyChanged()
+        {
+            GardenOrcOmelette goo = new GardenOrcOmelette();
+            Assert.PropertyChanged(goo, "Mushrooms", () =>
+            {
+                goo.Mushrooms = true;
+            });
+            Assert.PropertyChanged(goo, "Mushrooms", () =>
+            {
+                goo.Mushrooms = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingTomatoInvokesPropertyChanged()
+        {
+            GardenOrcOmelette goo = new GardenOrcOmelette();
+            Assert.PropertyChanged(goo, "Tomato", () =>
+            {
+                goo.Tomato = true;
+            });
+            Assert.PropertyChanged(goo, "Tomato", () =>
+            {
+                goo.Tomato = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingCheddarInvokesPropertyChanged()
+        {
+            GardenOrcOmelette goo = new GardenOrcOmelette();
+            Assert.PropertyChanged(goo, "Cheddar", () =>
+            {
+                goo.Cheddar = true;
+            });
+            Assert.PropertyChanged(goo, "Cheddar", () =>
+            {
+                goo.Cheddar = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingPropertyInvokesSpecialInstructions()
+        {
+            GardenOrcOmelette goo = new GardenOrcOmelette();
+
+            Assert.PropertyChanged(goo, "SpecialInstructions", () =>
+            {
+                goo.Tomato = false;
+            });
+
+            Assert.PropertyChanged(goo, "SpecialInstructions", () =>
+            {
+                goo.Cheddar = false;
+            });
+
+            Assert.PropertyChanged(goo, "SpecialInstructions", () =>
+            {
+                goo.Mushrooms = false;
+            });
+
+            Assert.PropertyChanged(goo, "SpecialInstructions", () =>
+            {
+                goo.Broccoli = false;
+            });
+        }
+
+
         [Fact]
         public void ShouldBeAIOrderItem()
         {

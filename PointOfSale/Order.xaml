@@ -30,7 +30,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Button Name="cancel" Click="CancelButton" Grid.Column="0" Background="IndianRed">
-                    Cancel Order
+                    Cancel
                 </Button>
                 <Button Name="confirm" Grid.Column="1" Background="LightGreen" IsEnabled="False">
                     Finalize Order   

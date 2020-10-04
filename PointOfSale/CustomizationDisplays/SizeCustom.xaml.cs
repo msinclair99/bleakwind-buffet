@@ -16,6 +16,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml.Serialization;
+using BleakwindBuffet.Data.Drinks;
+using BleakwindBuffet.Data.Enums;
+using BleakwindBuffet.Data.Sides;
+using Size = BleakwindBuffet.Data.Enums.Size;
 
 namespace PointOfSale.CustomizationDisplays
 {
@@ -32,6 +36,42 @@ namespace PointOfSale.CustomizationDisplays
             InitializeComponent();
         }
         
+        /// <summary>
+        /// Updates the properties for a change of a size using the radio buttons
+        /// </summary>
+        /// <param name="sender">radio button</param>
+        /// <param name="e">event</param>
+        private void SizeClickChange(object sender, RoutedEventArgs e)
+        {
+            Size s;
 
+            switch((sender as RadioButton).Name)
+            {
+                case "SizeSmall":
+                    s = Size.Small;
+                    break;
+
+                case "SizeMedium":
+                    s = Size.Medium;
+                    break;
+                case "SizeLarge":
+                    s = Size.Large;
+                    break;
+                default:
+                    throw new NotImplementedException("Default should not get here");
+            }
+
+            if(DataContext is Side)
+            {
+                Side sd = (Side)DataContext;
+                sd.Size = s;
+            }
+            if(DataContext is Drink)
+            {
+                Drink dk = (Drink)DataContext;
+                dk.Size = s;
+            }
+
+        }
     }
 }

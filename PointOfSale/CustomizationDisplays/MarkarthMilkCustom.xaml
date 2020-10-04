@@ -19,10 +19,10 @@
                 <RowDefinition/>
                 <RowDefinition Height="3*"/>
             </Grid.RowDefinitions>
-            <CheckBox Grid.Row="0" IsChecked="False">
+            <CheckBox x:Name="IceBox" Grid.Row="0" IsChecked="{Binding Path=Ice}">
                 Ice
             </CheckBox>
-            <Border Grid.Row="1">
+            <Border x:Name="SizeBorder" Grid.Row="1">
                 <local:SizeCustom/>
             </Border>
 

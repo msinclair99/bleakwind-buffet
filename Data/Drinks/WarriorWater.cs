@@ -6,6 +6,8 @@
 using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Drinks
@@ -17,8 +19,13 @@ namespace BleakwindBuffet.Data.Drinks
 	/// drink keeps track of ice,lemon, price, calories
 	/// special instructions and printing item.
 	/// </remarks>
-    public class WarriorWater : Drink
+    public class WarriorWater : Drink, INotifyPropertyChanged
     {
+		/// <summary>
+		/// An event to be invoked on the change of a property
+		/// </summary>
+		public event PropertyChangedEventHandler PropertyChanged;
+
 		/// <value>
 		/// Gets and sets the Size of the drink
 		/// </value>
@@ -32,6 +39,9 @@ namespace BleakwindBuffet.Data.Drinks
 			set
 			{
 				size = value;
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
 			}
 		}
 
@@ -65,15 +75,37 @@ namespace BleakwindBuffet.Data.Drinks
 			}
 		}
 
+		private bool ice = true;
 		/// <value>
 		/// Gets and sets the ice property
 		/// </value>
-		public bool Ice { get; set; } = true;
+		public bool Ice{
+			get
+			{
+				return ice; 
+			}
+			set
+			{
+				ice = value;
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+			}
+		}
 
 		/// <value>
 		/// Gets and sets the lemon property
 		/// </value>
-		public bool Lemon { get; set; } = false;
+		private bool lemon = false;
+		public bool Lemon
+		{
+			get { return lemon; }
+			set
+			{
+				lemon = value;
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lemon"));
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+			}
+		}
 
 		/// <value>
 		/// List that hold special instructions for making the drink given ice and lemon

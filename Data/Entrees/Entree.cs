@@ -9,11 +9,17 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+   
     /// <summary>
     /// A base class representing the common properties of entrees
     /// </summary>
     public abstract class Entree : IOrderItem
     {
+        /// <summary>
+        /// binds Name to the ToString of an item
+        /// </summary>
+        public virtual string Name => ToString();
+
         /// <summary>
         /// The price of the entree
         /// </summary>

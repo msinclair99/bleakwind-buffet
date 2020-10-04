@@ -16,6 +16,11 @@ namespace BleakwindBuffet.Data.Drinks
     public abstract class Drink : IOrderItem
     {
         /// <summary>
+        /// binds Name to the ToString of an item
+        /// </summary>
+        public virtual string Name => ToString();
+
+        /// <summary>
         /// The size of the drink
         /// </summary>
         public virtual Size Size { get; set; } = Size.Small;

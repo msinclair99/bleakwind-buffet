@@ -5,11 +5,13 @@
 */
 using BleakwindBuffet.Data.Enums;
 using System;
+using System.ComponentModel;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Drinks
 {
+
 	/// <summary>
 	/// A class which represents a coffee drink
 	/// </summary>
@@ -17,8 +19,14 @@ namespace BleakwindBuffet.Data.Drinks
 	/// drink keeps track of ice, cream, decaf, price, calories
 	/// special instructions and printing item.
 	/// </remarks>
-	public class CandlehearthCoffee : Drink
-    {
+	public class CandlehearthCoffee : Drink, INotifyPropertyChanged
+	{
+
+		/// <summary>
+		/// An event to be invoked on the change of a property
+		/// </summary>
+		public event PropertyChangedEventHandler PropertyChanged;
+
 		/// <value>
 		/// Gets and sets the Size of the drink
 		/// </value>
@@ -32,6 +40,9 @@ namespace BleakwindBuffet.Data.Drinks
 			set
 			{
 				size = value;
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
 			}
 		}
 
@@ -68,17 +79,47 @@ namespace BleakwindBuffet.Data.Drinks
 		/// <value>
 		/// Gets and sets the ice property
 		/// </value>
-		public bool Ice { get; set; } = false;
+		private bool ice = false;
+		public bool Ice
+		{
+			get { return ice; }
+			set
+			{
+				ice = value;
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+			}
+		}
 
 		/// <value>
 		/// Gets and sets the cream property
 		/// </value>
-		public bool RoomForCream { get; set; } = false;
+		private bool roomforcream = false;
+		public bool RoomForCream
+		{
+			get { return roomforcream; }
+			set
+			{
+				roomforcream = value;
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("RoomForCream"));
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+			}
+		}
 
 		/// <value>
 		/// Gets and sets the decaf property
 		/// </value>
-		public bool Decaf { get; set; } = false;
+		private bool decaf = false;
+		public bool Decaf
+		{
+			get { return decaf; }
+			set
+			{
+				decaf = value;
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Decaf"));
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
+			}
+		}
 
 		/// <value>
 		/// List that hold special instructions for making the drink with ice or cream

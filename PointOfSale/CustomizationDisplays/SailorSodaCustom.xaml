@@ -3,9 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
              xmlns:local="clr-namespace:PointOfSale.CustomizationDisplays"
+             xmlns:data="clr-namespace:BleakwindBuffet.Data.Enums;assembly=Data"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="SodaFlavor" ObjectType="system:Enum" MethodName="GetValues">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="data:SodaFlavor"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
@@ -20,23 +29,15 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <CheckBox Grid.Row="0" >
+            <CheckBox x:Name="IceBox" Grid.Row="0" IsChecked="{Binding Path=Ice}" >
                 Ice
             </CheckBox>
             <StackPanel Grid.Row="1">
                 <TextBlock Margin="1">Soda Flavor:</TextBlock>
-            <ComboBox VerticalAlignment="Center" HorizontalAlignment="Center" >
-                <ComboBoxItem>Blackberry</ComboBoxItem>
-                <ComboBoxItem IsSelected="True">Cherry</ComboBoxItem>
-                <ComboBoxItem>GrapeFruit</ComboBoxItem>
-                <ComboBoxItem>Lemon</ComboBoxItem>
-                <ComboBoxItem>Peach</ComboBoxItem>
-                <ComboBoxItem>WaterMelon</ComboBoxItem>
-            
-            </ComboBox>
+                <ComboBox VerticalAlignment="Center" HorizontalAlignment="Center" ItemsSource="{Binding Source={StaticResource SodaFlavor}}" SelectedItem="{Binding Path=Flavor}"/>
             </StackPanel>
-            
-            <Border Grid.Row="2">
+
+            <Border x:Name="SizeBorder" Grid.Row="2">
                 <local:SizeCustom/>
             </Border>
 

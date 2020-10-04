@@ -14,6 +14,7 @@ namespace BleakwindBuffet.Data
     /// </summary>
     public interface IOrderItem
     {
+
         /// <summary>
         /// The price of the item
         /// </summary>
@@ -31,5 +32,6 @@ namespace BleakwindBuffet.Data
         /// Special Instructions to prepare the item
         /// </summary>
         List<string> SpecialInstructions { get; }
+
     }
 }

@@ -10,6 +10,7 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Drinks;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -18,6 +19,113 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
     /// </summary>
     public class WarriorWaterTests
     {
+        [Fact]
+        public void ImplementsINotifyPropertyChanged()
+        {
+            var ww = new WarriorWater();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(ww);
+        }
+
+        [Fact]
+        public void ChangingIceInvokesPropertyChanged()
+        {
+            var ww = new WarriorWater();
+            Assert.PropertyChanged(ww, "Ice", () =>
+            {
+                ww.Ice = false;
+            });
+            Assert.PropertyChanged(ww, "Ice", () =>
+            {
+                ww.Ice = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingLemonInvokesPropertyChanged()
+        {
+            var ww = new WarriorWater();
+            Assert.PropertyChanged(ww, "Lemon", () =>
+            {
+                ww.Lemon = true;
+            });
+            Assert.PropertyChanged(ww, "Lemon", () =>
+            {
+                ww.Lemon = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingPropertyInvokesSpecialInstructions()
+        {
+            var ww = new WarriorWater();
+
+            Assert.PropertyChanged(ww, "SpecialInstructions", () =>
+            {
+                ww.Ice = false;
+            });
+
+            Assert.PropertyChanged(ww, "SpecialInstructions", () =>
+            {
+                ww.Ice = true;
+            });
+
+            Assert.PropertyChanged(ww, "SpecialInstructions", () =>
+            {
+                ww.Lemon = true;
+            });
+            
+            Assert.PropertyChanged(ww, "SpecialInstructions", () =>
+            {
+                ww.Lemon = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeNotifiesSizeProperty()
+        {
+            var ww = new WarriorWater();
+
+            Assert.PropertyChanged(ww, "Name", () =>
+            {
+                ww.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(ww, "Price", () =>
+            {
+                ww.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(ww, "Calories", () =>
+            {
+                ww.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(ww, "Name", () =>
+            {
+                ww.Size = Size.Large;
+            });
+            Assert.PropertyChanged(ww, "Price", () =>
+            {
+                ww.Size = Size.Large;
+            });
+            Assert.PropertyChanged(ww, "Calories", () =>
+            {
+                ww.Size = Size.Large;
+            });
+
+            Assert.PropertyChanged(ww, "Name", () =>
+            {
+                ww.Size = Size.Small;
+            });
+            Assert.PropertyChanged(ww, "Price", () =>
+            {
+                ww.Size = Size.Small;
+            });
+            Assert.PropertyChanged(ww, "Calories", () =>
+            {
+                ww.Size = Size.Small;
+            });
+        }
+
+
         [Fact]
         public void ShouldBeAIOrderItem()
         {
@@ -124,7 +232,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             }
             else
             {
-                if(includeLemon)
+                if (includeLemon)
                 {
                     Assert.Contains("Add lemon", ww.SpecialInstructions);
                 }
@@ -132,17 +240,17 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
                 {
                     Assert.Empty(ww.SpecialInstructions);
                 }
-                
+
             }
 
         }
 
         [Theory]
-        [InlineData( Size.Small, "Small Warrior Water")]
-        [InlineData( Size.Medium, "Medium Warrior Water")]
-        [InlineData( Size.Large, "Large Warrior Water")]
-        
-        public void ShouldHaveCorrectToStringBasedOnSizeAndFlavor( Size size, string name)
+        [InlineData(Size.Small, "Small Warrior Water")]
+        [InlineData(Size.Medium, "Medium Warrior Water")]
+        [InlineData(Size.Large, "Large Warrior Water")]
+
+        public void ShouldHaveCorrectToStringBasedOnSizeAndFlavor(Size size, string name)
         {
             WarriorWater ww = new WarriorWater();
             ww.Size = size;

@@ -5,6 +5,7 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
@@ -16,8 +17,13 @@ namespace BleakwindBuffet.Data.Entrees
 	/// entree keeps track of holding components, price, calories
 	/// special instructions for holding items and printing item.
 	/// </remarks>
-    public class SmokehouseSkeleton : Entree
+    public class SmokehouseSkeleton : Entree, INotifyPropertyChanged
     {
+        /// <summary>
+        /// An event to be invoked on the change of a property
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <value>
         /// Gets the Price of the entree
         /// </value>
@@ -31,22 +37,63 @@ namespace BleakwindBuffet.Data.Entrees
         /// <value>
         /// Gets and sets the sausagelink property
         /// </value>
-        public bool SausageLink { get; set; } = true;
+        private bool sausagelink = true;
+        public bool SausageLink
+        {
+            get { return sausagelink; }
+            set
+            {
+                sausagelink = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SausageLink"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
 
         /// <value>
         /// Gets and sets the egg property
         /// </value>
-        public bool Egg { get; set; } = true;
+        private bool egg = true;
+        public bool Egg
+        {
+            get { return egg; }
+            set
+            {
+                egg = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Egg"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
 
         /// <value>
         /// Gets and sets the hashBrowns property
         /// </value>
-        public bool HashBrowns { get; set; } = true;
+        private bool hashbrowns = true;
+        public bool HashBrowns
+        {
+            get { return hashbrowns; }
+            set
+            {
+                hashbrowns = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("HashBrowns"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
 
         /// <value>
         /// Gets and sets the pancake property
         /// </value>
-        public bool Pancake { get; set; } = true;
+        private bool pancake = true;
+        public bool Pancake
+        {
+            get { return pancake; }
+            set
+            {
+                pancake = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pancake"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
+
 
         /// <value>
         /// List that hold special instructions for making the entree without certain properties
