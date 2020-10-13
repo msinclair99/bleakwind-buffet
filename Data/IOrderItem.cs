@@ -5,6 +5,7 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data
@@ -12,8 +13,10 @@ namespace BleakwindBuffet.Data
     /// <summary>
     /// Interface for all orderable items
     /// </summary>
-    public interface IOrderItem
+    public interface IOrderItem: INotifyPropertyChanged
     {
+        object Display { get; set; }
+        bool newItem { get; set; }
 
         /// <summary>
         /// The price of the item

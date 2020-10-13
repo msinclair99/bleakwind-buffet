@@ -3,6 +3,7 @@
 * Class name: ThalmorTripleCustom.xaml.cs
 * Purpose: Creates a screen interactions for Thalmor Triple customization
 */
+using BleakwindBuffet.Data;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -36,7 +37,13 @@ namespace PointOfSale.CustomizationDisplays
         private void ButtonAdd(object sender, RoutedEventArgs e)
         {
             FrameworkElement display = new MenuSelection();
-            var o = this.FindAncestor<Order>();
+            var o = this.FindAncestor<OrderControl>();
+            var item = (IOrderItem)this.DataContext;
+            if (item.newItem)
+            {
+                ((Order)o.DataContext).Add((IOrderItem)this.DataContext);
+                item.newItem = false;
+            }
             o.DisplayUpdate(display);
         }
     }

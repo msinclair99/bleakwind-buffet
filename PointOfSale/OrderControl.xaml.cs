@@ -1,8 +1,9 @@
 ﻿/*
 * Author: Matthew Sinclair
-* Class name: Order.xaml.cs
+* Class name: OrderControl.xaml.cs
 * Purpose: Creates a screen for Ordering
 */
+using BleakwindBuffet.Data;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,30 +16,38 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using PointOfSale.CustomizationDisplays;
 
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for Order.xaml
+    /// Interaction logic for OrderControl.xaml
     /// </summary>
-    public partial class Order : UserControl
+    public partial class OrderControl : UserControl
     {
-        public Order()
+        uint orderNum = 1;
+        public OrderControl()
         {
+            this.DataContext = new Order(orderNum);
             InitializeComponent();
         }
-
         public void DisplayUpdate(FrameworkElement display)
         {
             LeftContainer.Child = display;
+        }
+
+        public void SubmitButton(object sender, RoutedEventArgs e )
+        {
+            orderNum++;
+            this.DataContext = new Order(orderNum);
+            throw new NotImplementedException("Cannot finish order Proccessing");
         }
 
         public void CancelButton(object sender, RoutedEventArgs e)
         {
             if (LeftContainer.Child is MenuSelection)
             {
-                throw new NotImplementedException("Cannot cancel an order yet");
+                orderNum++;
+                this.DataContext = new Order(orderNum);
             }
             else
             {

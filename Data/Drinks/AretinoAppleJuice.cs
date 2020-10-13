@@ -11,7 +11,7 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-
+   
     /// <summary>
 	/// A class which represents a apple drink
 	/// </summary>
@@ -25,6 +25,8 @@ namespace BleakwindBuffet.Data.Drinks
         /// An event to be invoked on the change of a property
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public bool newItem { get; set; } = true;
 
         /// <value>
         /// Gets and sets the Size of the drink

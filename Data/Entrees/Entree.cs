@@ -5,6 +5,7 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
@@ -13,8 +14,12 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// A base class representing the common properties of entrees
     /// </summary>
-    public abstract class Entree : IOrderItem
+    public abstract class Entree : IOrderItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public object Display { get; set; }
+        public bool newItem { get; set; } = true;
         /// <summary>
         /// binds Name to the ToString of an item
         /// </summary>

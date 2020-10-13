@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data;
 using PointOfSale.CustomizationDisplays;
 
 namespace PointOfSale
@@ -28,5 +29,28 @@ namespace PointOfSale
         {
             InitializeComponent();
         }
-    }
+
+        public void RemoveItemButton(object sender, RoutedEventArgs e)
+        {
+
+            Order o = (Order)DataContext;
+            IOrderItem item = (IOrderItem)((Button)sender).DataContext;
+            o.Remove(item);
+        }
+
+        void OrderListSelectionChange(object sender, SelectionChangedEventArgs e)
+        {
+            FrameworkElement elem;
+            IOrderItem item = (IOrderItem)((ListBox)sender).SelectedItem;
+            var orderControl = this.FindAncestor<OrderControl>();
+            if (item != null)
+               
+                elem = (FrameworkElement)item.Display;
+            else
+                elem = new MenuSelection();
+            orderControl?.DisplayUpdate(elem);
+        }
+    
+
+}
 }

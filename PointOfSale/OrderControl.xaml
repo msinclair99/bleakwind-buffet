@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="PointOfSale.Order"
+﻿<UserControl x:Class="PointOfSale.OrderControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -17,10 +17,10 @@
         </Border>
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="6*"/>
+                <RowDefinition Height="9*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            
+
             <Border Background="DarkGray" >
                 <local:OrderInfo/>
             </Border>
@@ -32,8 +32,8 @@
                 <Button Name="cancel" Click="CancelButton" Grid.Column="0" Background="IndianRed">
                     Cancel
                 </Button>
-                <Button Name="confirm" Grid.Column="1" Background="LightGreen" IsEnabled="False">
-                    Finalize Order   
+                <Button Name="confirm" Click="SubmitButton" Grid.Column="1" Background="LightGreen">
+                    Finalize Order
                 </Button>
             </Grid>
         </Grid>

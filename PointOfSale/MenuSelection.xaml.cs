@@ -21,7 +21,7 @@ using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data.Sides;
 using PointOfSale.CustomizationDisplays;
-using static PointOfSale.Order;
+using static PointOfSale.OrderControl;
 
 namespace PointOfSale
 {
@@ -45,95 +45,99 @@ namespace PointOfSale
         /// <param name="e">Event</param>
         public void MenuButtonPress(object sender, RoutedEventArgs e)
         {
-            var o = this.FindAncestor<Order>();
-            var test = new BriarheartBurger(); ;
-            IOrderItem choice;
-            FrameworkElement display;
-            switch ((sender as Button).Name)
+            if (DataContext is Order orderX)
             {
-                case "burger":
-                    display = new BriarheartBurgerCustom();
-                    choice = new BriarheartBurger();
-                    break;
-                case "draugr":
-                    display = new DoubleDraugrCustom();
-                    choice = new DoubleDraugr();
-                    break;
-                case "triple":
-                    display = new ThalmorTripleCustom();
-                    choice = new ThalmorTriple();
-                    break;
-                case "skeleton":
-                    display = new SmokehousrSkeletonCustom();
-                    choice = new SmokehouseSkeleton();
-                    break;
-                case "omelette":
-                    display = new GardenOrcOmeletteCustom();
-                    choice = new GardenOrcOmelette();
-                    break;
-                case "poacher":
-                    display = new PhillyPoacherCustom();
-                    choice = new PhillyPoacher();
-                    break;
-                case "t_bone":
-                    display = new NoCustom();
-                    choice = new ThugsTBone();
-                    break;
+                var o = this.FindAncestor<OrderControl>();
+                IOrderItem choice;
+                FrameworkElement display;
+                switch ((sender as Button).Name)
+                {
+                    case "burger":
+                        display = new BriarheartBurgerCustom();
+                        choice = new BriarheartBurger();
+                        break;
+                    case "draugr":
+                        display = new DoubleDraugrCustom();
+                        choice = new DoubleDraugr();
+                        break;
+                    case "triple":
+                        display = new ThalmorTripleCustom();
+                        choice = new ThalmorTriple();
+                        break;
+                    case "skeleton":
+                        display = new SmokehousrSkeletonCustom();
+                        choice = new SmokehouseSkeleton();
+                        break;
+                    case "omelette":
+                        display = new GardenOrcOmeletteCustom();
+                        choice = new GardenOrcOmelette();
+                        break;
+                    case "poacher":
+                        display = new PhillyPoacherCustom();
+                        choice = new PhillyPoacher();
+                        break;
+                    case "t_bone":
+                        display = new NoCustom();
+                        choice = new ThugsTBone();
+                        break;
 
-                case "salad":
-                    SideCustom salad =  new SideCustom();
-                    salad.Title.Text = "Vokun Salad Customization";
-                    display = salad;
-                    choice = new VokunSalad();
-                    break;
-                case "miraak":
-                    SideCustom miraak = new SideCustom();
-                    miraak.Title.Text = "Fried Miraak Customization";
-                    display = miraak;
-                    choice = new FriedMiraak();
-                    break;
-                case "grits":
-                    SideCustom grits = new SideCustom();
-                    grits.Title.Text = "Mad Otar Grits Customization";
-                    display = grits;
-                    choice = new MadOtarGrits();
-                    break;
-                case "fries":
-                    SideCustom fries = new SideCustom();
-                    fries.Title.Text = "DragonBorn Waffle Fries Customization";
-                    display = fries;
-                    choice = new DragonbornWaffleFries();
-                    break;
+                    case "salad":
+                        SideCustom salad = new SideCustom();
+                        salad.Title.Text = "Vokun Salad Customization";
+                        display = salad;
+                        choice = new VokunSalad();
+                        break;
+                    case "miraak":
+                        SideCustom miraak = new SideCustom();
+                        miraak.Title.Text = "Fried Miraak Customization";
+                        display = miraak;
+                        choice = new FriedMiraak();
+                        break;
+                    case "grits":
+                        SideCustom grits = new SideCustom();
+                        grits.Title.Text = "Mad Otar Grits Customization";
+                        display = grits;
+                        choice = new MadOtarGrits();
+                        break;
+                    case "fries":
+                        SideCustom fries = new SideCustom();
+                        fries.Title.Text = "DragonBorn Waffle Fries Customization";
+                        display = fries;
+                        choice = new DragonbornWaffleFries();
+                        break;
 
-                case "water":
-                    display = new WarriorWaterCustom();
-                    choice = new WarriorWater();
-                    break;
-                case "soda":
-                    display = new SailorSodaCustom();
-                    choice = new SailorSoda();
-                    break;
-                case "coffee":
-                    display = new CandlehearthCoffeeCustom();
-                    choice = new CandlehearthCoffee();
-                    break;
-                case "milk":
-                    display = new MarkarthMilkCustom();
-                    choice = new MarkarthMilk();
-                    break;
-                case "juice":
-                    display = new ArentinoAppleJuiceCustom();
-                    choice = new AretinoAppleJuice();
-                    break;
-                default:
-                    display = new MenuSelection();
-                    choice = null;
-                    break;
+                    case "water":
+                        display = new WarriorWaterCustom();
+                        choice = new WarriorWater();
+                        break;
+                    case "soda":
+                        display = new SailorSodaCustom();
+                        choice = new SailorSoda();
+                        break;
+                    case "coffee":
+                        display = new CandlehearthCoffeeCustom();
+                        choice = new CandlehearthCoffee();
+                        break;
+                    case "milk":
+                        display = new MarkarthMilkCustom();
+                        choice = new MarkarthMilk();
+                        break;
+                    case "juice":
+                        display = new ArentinoAppleJuiceCustom();
+                        choice = new AretinoAppleJuice();
+                        break;
+                    default:
+                        display = new MenuSelection();
+                        choice = null;
+                        break;
+                }
+
+
+                display.DataContext = choice;
+                choice.Display = display;
+                o?.DisplayUpdate(display);
+
             }
-
-
-            display.DataContext = choice;
-            o?.DisplayUpdate(display);
         }
     }
 }
