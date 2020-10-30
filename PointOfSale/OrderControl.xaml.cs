@@ -4,6 +4,7 @@
 * Purpose: Creates a screen for Ordering
 */
 using BleakwindBuffet.Data;
+using PointOfSale.CustomizationDisplays;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -24,7 +25,7 @@ namespace PointOfSale
     /// </summary>
     public partial class OrderControl : UserControl
     {
-        uint orderNum = 1;
+        public uint orderNum = 1;
         public OrderControl()
         {
             this.DataContext = new Order(orderNum);
@@ -38,16 +39,32 @@ namespace PointOfSale
         public void SubmitButton(object sender, RoutedEventArgs e )
         {
             orderNum++;
-            this.DataContext = new Order(orderNum);
-            throw new NotImplementedException("Cannot finish order Proccessing");
+            LeftContainer.Child = new PaymentMethod();
+            //this.DataContext = new Order(orderNum);
+           
         }
 
         public void CancelButton(object sender, RoutedEventArgs e)
         {
             if (LeftContainer.Child is MenuSelection)
             {
-                orderNum++;
-                this.DataContext = new Order(orderNum);
+                MenuSelection ms = (MenuSelection)LeftContainer.Child;
+                if(ms.ComboCreate.IsEnabled) {
+                    orderNum++;
+                    this.DataContext = new Order(orderNum);
+                }
+                else
+                {
+                    try
+                    {
+                        var c = this.FindAncestor<ComboCustom>();
+                        var x = (IOrderItem)c.DataContext;
+
+                        var elem = (FrameworkElement)x.Display;
+                        this?.DisplayUpdate(elem);
+                    }
+                    catch { }
+                }
             }
             else
             {

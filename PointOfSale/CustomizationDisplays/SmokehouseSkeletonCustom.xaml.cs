@@ -4,6 +4,7 @@
 * Purpose: Creates a screen interactions for smokehouse skeleton customization
 */
 using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Entrees;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -38,13 +39,22 @@ namespace PointOfSale.CustomizationDisplays
         /// <param name="sender">Button</param>
         /// <param name="e">Event</param>
         private void ButtonAdd(object sender, RoutedEventArgs e)
-        {
+        {                   
             FrameworkElement display = new MenuSelection();
             var o = this.FindAncestor<OrderControl>();
+
             var item = (IOrderItem)this.DataContext;
             if (item.newItem)
             {
-                ((Order)o.DataContext).Add((IOrderItem)this.DataContext);
+                /*try
+                {
+                    
+                    var c = this.<ComboCustom>();
+                    ((Combo)c.DataContext).ComboEntree = (Entree)this.DataContext;
+                }*/
+                //catch {              
+                    ((Order)o.DataContext).Add((IOrderItem)this.DataContext);
+                //}
                 item.newItem = false;
             }
             o.DisplayUpdate(display);

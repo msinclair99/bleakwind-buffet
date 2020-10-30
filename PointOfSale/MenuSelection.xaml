@@ -48,6 +48,8 @@
             <Button Name="coffee" Click="MenuButtonPress" Grid.Column="2" Grid.Row="3" Margin="10">Candlehearth Coffee</Button>
             <Button Name="milk" Click="MenuButtonPress" Grid.Column="2" Grid.Row="4" Margin="10">Markarth Milk</Button>
             <Button Name="juice" Click="MenuButtonPress" Grid.Column="2" Grid.Row="5" Margin="10">Aretino Apple Juice</Button>
+
+            <Button Name="ComboCreate" Click="MenuButtonPress" Grid.Column="2" Grid.Row="7" Margin="10">Combo Meal</Button>
         </Grid>
 
 

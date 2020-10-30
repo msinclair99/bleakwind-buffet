@@ -126,6 +126,10 @@ namespace PointOfSale
                         display = new ArentinoAppleJuiceCustom();
                         choice = new AretinoAppleJuice();
                         break;
+                    case "ComboCreate":
+                        display = new ComboCustom();
+                        choice = new Combo();
+                        break;
                     default:
                         display = new MenuSelection();
                         choice = null;
@@ -139,6 +143,70 @@ namespace PointOfSale
 
             }
         }
+
+        public void PickDrink()
+        {
+            burger.IsEnabled = false;
+            draugr.IsEnabled = false;
+            triple.IsEnabled = false;
+            skeleton.IsEnabled = false;
+            omelette.IsEnabled = false;
+            poacher.IsEnabled = false;
+            t_bone.IsEnabled = false;
+            salad.IsEnabled = false;
+            miraak.IsEnabled = false;
+            grits.IsEnabled = false;
+            fries.IsEnabled = false;
+            /*water.IsEnabled = false;
+            soda.IsEnabled = false;
+            coffee.IsEnabled = false;
+            milk.IsEnabled = false;
+            juice.IsEnabled = false;*/
+            ComboCreate.IsEnabled = false;
+        }
+
+        public void PickEntree()
+        {
+            /*burger.IsEnabled = false;
+            draugr.IsEnabled = false;
+            triple.IsEnabled = false;
+            skeleton.IsEnabled = false;
+            omelette.IsEnabled = false;
+            poacher.IsEnabled = false;
+            t_bone.IsEnabled = false;*/
+            salad.IsEnabled = false;
+            miraak.IsEnabled = false;
+            grits.IsEnabled = false;
+            fries.IsEnabled = false;
+            water.IsEnabled = false;
+            soda.IsEnabled = false;
+            coffee.IsEnabled = false;
+            milk.IsEnabled = false;
+            juice.IsEnabled = false;
+            ComboCreate.IsEnabled = false;
+        }
+
+        public void PickSide()
+        {
+            burger.IsEnabled = false;
+            draugr.IsEnabled = false;
+            triple.IsEnabled = false;
+            skeleton.IsEnabled = false;
+            omelette.IsEnabled = false;
+            poacher.IsEnabled = false;
+            t_bone.IsEnabled = false;
+            /*salad.IsEnabled = false;
+            miraak.IsEnabled = false;
+            grits.IsEnabled = false;
+            fries.IsEnabled = false;*/
+            water.IsEnabled = false;
+            soda.IsEnabled = false;
+            coffee.IsEnabled = false;
+            milk.IsEnabled = false;
+            juice.IsEnabled = false;
+            ComboCreate.IsEnabled = false;
+        }
     }
+
 }
 
