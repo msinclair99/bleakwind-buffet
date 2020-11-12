@@ -20,6 +20,13 @@ namespace BleakwindBuffet.Data
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        // <summary>
+        /// description of the item
+        /// </summary>
+        public string Description { get { return "Combo"; } }
+
+        public string Category => "Combo";
+
         public object Display { get; set; }
         public bool newItem { get; set; } = true;
 

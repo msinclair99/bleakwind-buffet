@@ -24,6 +24,11 @@ namespace BleakwindBuffet.Data.Entrees
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        // <summary>
+        /// description of the item
+        /// </summary>
+        public override string Description { get { return "Juicy T-Bone, not much else to say."; } }
+
         /// <value>
         /// Gets the Price of the entree
         /// </value>

@@ -16,6 +16,14 @@ namespace BleakwindBuffet.Data
     public interface IOrderItem: INotifyPropertyChanged
     {
         object Display { get; set; }
+
+        /// <summary>
+        /// description of the item
+        /// </summary>
+        string Description { get; }
+
+        string Category { get; }
+
         bool newItem { get; set; }
 
         /// <summary>

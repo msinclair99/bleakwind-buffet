@@ -18,6 +18,12 @@ namespace BleakwindBuffet.Data.Entrees
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// description of the item
+        /// </summary>
+        public abstract string Description { get; }
+
+        public virtual string Category => "Entree";
         public object Display { get; set; }
         public bool newItem { get; set; } = true;
         /// <summary>

@@ -18,10 +18,17 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class ThugsTBoneTests
     {
         [Fact]
+        public void ShouldReturnCorrectDecription()
+        {
+            ThugsTBone tt = new ThugsTBone();
+            Assert.Equal("Juicy T-Bone, not much else to say.", tt.Description);
+        }
+
+        [Fact]
         public void ImplementsINotifyPropertyChanged()
         {
-            PhillyPoacher pp = new PhillyPoacher();
-            Assert.IsAssignableFrom<INotifyPropertyChanged>(pp);
+            ThugsTBone tt = new ThugsTBone();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(tt);
         }
 
 

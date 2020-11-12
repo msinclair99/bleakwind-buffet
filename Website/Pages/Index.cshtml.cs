@@ -56,10 +56,54 @@ namespace Website.Pages
         public void OnGet(string SearchTerms, string[] MenuItems, double? PriceMin, double? PriceMax, uint? CaloriesMin, uint? CaloriesMax)
         {
             itemInclude = MenuItems; searchTerms = SearchTerms; priceMin = PriceMin; priceMax = PriceMax; caloriesMin = CaloriesMin; caloriesMax = CaloriesMax;
-            MenuList = Menu.Search(Menu.FullMenu(), SearchTerms);
+            MenuList = Menu.FullMenu();
+            if (SearchTerms != null)
+            {
+                MenuList = MenuList.Where(IOrderItem => IOrderItem.ToString() != null && (IOrderItem.ToString().Contains(SearchTerms, StringComparison.InvariantCultureIgnoreCase)) ||
+                (IOrderItem.Description != null && IOrderItem.Description.Contains(SearchTerms, StringComparison.InvariantCultureIgnoreCase)));
+            }
+            // Filter by MPAA Rating
+            if (MenuItems != null && MenuItems.Length != 0)
+            {
+
+                MenuList = MenuList.Where(item => item != null && MenuItems.Contains(item.Category));
+
+            }
+
+            if (PriceMin != null && PriceMax != null)
+            {
+
+                MenuList = MenuList.Where(IOrderItem => IOrderItem.Price > PriceMin);
+                MenuList = MenuList.Where(IOrderItem => IOrderItem.Price < PriceMax);
+
+            }
+            if (PriceMin == null && PriceMax != null)
+            {
+                MenuList = MenuList.Where(IOrderItem => IOrderItem.Price < PriceMax);
+            }
+            if (PriceMax == null && PriceMin != null)
+            {
+                MenuList = MenuList.Where(IOrderItem => IOrderItem.Price > PriceMin);
+            }
+            if (CaloriesMin != null && CaloriesMax != null)
+            {
+                MenuList = MenuList.Where(IOrderItem => IOrderItem.Calories > CaloriesMin);
+                MenuList = MenuList.Where(IOrderItem => IOrderItem.Calories < CaloriesMax);
+
+            }
+            if (CaloriesMin == null && CaloriesMax != null)
+            {
+                MenuList = MenuList.Where(IOrderItem => IOrderItem.Calories < CaloriesMax); ;
+            }
+            if (CaloriesMax == null && CaloriesMin != null)
+            {
+                MenuList = MenuList.Where(IOrderItem => IOrderItem.Calories > CaloriesMin);
+            }
+
+            /*MenuList = Menu.Search(Menu.FullMenu(), SearchTerms);
             MenuList = Menu.FilterByCategory(MenuList, MenuItems);
             MenuList = Menu.FilterByPrice(MenuList, PriceMin, PriceMax);
-            MenuList = Menu.FilterByCalories (MenuList, CaloriesMin, CaloriesMax);
+            MenuList = Menu.FilterByCalories(MenuList, CaloriesMin, CaloriesMax);*/
         }
 
         /// <summary>

@@ -147,7 +147,7 @@ namespace BleakwindBuffet.Data
             {
                              
                 //add the menu item if the name is a match
-                if (item.ToString() != null && item.ToString().ToLower().Contains(term.ToLower()))
+                if (item.ToString() != null && (item.ToString().ToLower().Contains(term.ToLower())))// || item.about.Contains(term.ToLower()))
                 {
                     results.Add(item);
                 }

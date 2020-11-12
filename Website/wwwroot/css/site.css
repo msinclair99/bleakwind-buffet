@@ -8,12 +8,18 @@
     align-content:center;
     text-align:center;
 }
+.type-label{
+    margin-left:30px;
+    text-decoration-line:underline;
+}
+.name {
+    margin-bottom:0px;
+}
 /*styles the flavors list*/
 .flav {
-    display:flex;
-   
+    display: flex;
     flex-direction: row;
-    align-content:flex-end;
+    align-content: flex-end;
 }
 /*syles the elements in flavors list*/
 .flavors{
@@ -22,6 +28,11 @@
 /*styles the sizes printed*/
 .size{
     font-weight:bold;
+}
+
+.desc {
+    font-style: italic;
+    margin: 0px;
 }
 
 a.navbar-brand {
@@ -118,4 +129,19 @@ form#Menu-database {
     #filters h4 {
         margin-bottom: 0.2rem;
     }
+
+
+
+.results {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+}
+
+@media (max-width: 490px){
+    .results {
+        flex-direction: column;
+    }
+
+}
 

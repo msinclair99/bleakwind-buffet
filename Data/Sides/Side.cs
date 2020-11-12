@@ -18,6 +18,13 @@ namespace BleakwindBuffet.Data.Sides
     public abstract class Side : IOrderItem, INotifyPropertyChanged
     {
         public object Display { get; set; }
+
+        /// <summary>
+        /// description of the item
+        /// </summary>
+        public abstract string Description { get;}
+
+        public virtual string Category => "Side";
         public bool newItem { get; set; } = true;
 
         public event PropertyChangedEventHandler PropertyChanged;

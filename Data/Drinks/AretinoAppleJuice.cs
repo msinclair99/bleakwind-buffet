@@ -26,6 +26,11 @@ namespace BleakwindBuffet.Data.Drinks
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// description of the item
+        /// </summary>
+        public override string Description { get { return "Fresh squeezed apple juice."; } }
+
         public bool newItem { get; set; } = true;
 
         /// <value>
